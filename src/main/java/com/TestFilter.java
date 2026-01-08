@@ -2,6 +2,7 @@ package com;
 
 import javax.servlet.*;
 
+import javassist.ClassPool;
 import org.apache.catalina.core.StandardContext;
 import org.apache.tomcat.util.descriptor.web.FilterDef;
 import org.apache.tomcat.util.descriptor.web.FilterMap;
@@ -21,6 +22,8 @@ public class TestFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("Filter qidong");
+
+
     }
 
     @Override

