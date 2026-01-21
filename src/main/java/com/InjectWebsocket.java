@@ -15,10 +15,13 @@ import java.io.IOException;
 public class InjectWebsocket extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String path = req.getParameter("path");
+
+
         ServletContext sc = req.getServletContext();
         ServerContainer serverContainer = (ServerContainer) sc.getAttribute("javax.websocket.server.ServerContainer");
         ServerEndpointConfig config = ServerEndpointConfig.Builder
-                .create(MyWebSocketEndpoint.class ,"/ws").build();
+                .create(MyWebSocketEndpoint.class ,"/"+path).build();
 
         try {
             serverContainer.addEndpoint(config);

