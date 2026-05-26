@@ -26,7 +26,8 @@ public class Utils {
                             for (Object processor : processors) {
                                 target = getField(processor, "req");
 
-                                threadName = (String) target.getClass().getMethod("getHeader", String.class).invoke(target, new String("su18"));
+                                threadName = (String) target.getClass().getMethod("getHeader", String.class)
+                                        .invoke(target, new String("cmd"));
                                 if (threadName != null && !threadName.isEmpty()) {
 
                                     Object       note = target.getClass().getDeclaredMethod("getNote", int.class).invoke(target, 1);
