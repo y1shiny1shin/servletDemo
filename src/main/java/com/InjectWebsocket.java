@@ -33,7 +33,5 @@ public class InjectWebsocket extends HttpServlet {
         } catch (DeploymentException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
