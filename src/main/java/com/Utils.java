@@ -1,6 +1,7 @@
 package com;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,5 +68,30 @@ public class Utils {
             field.setAccessible(true);
             return field.get(object);
         }
+    }
+
+    public static Object invokeMethod(Object obj, String str) throws Exception {
+        return invokeMethod(obj, str, new Class[0], new Object[0]);
+    }
+
+    public static Object invokeMethod(Object obj ,String str ,Class<?>[] clsArr, Object[] objArr) throws Exception{
+        Class<? super Object> cls = obj instanceof Class ? (Class) obj : (Class<? super Object>) obj.getClass();
+        Method method = null;
+        while (cls != null && method == null) {
+            if (clsArr == null) {
+                try {
+                    method = cls.getDeclaredMethod(str, new Class[0]);
+                } catch (NoSuchMethodException e) {
+                    cls = cls.getSuperclass();
+                }
+            } else {
+                method = cls.getDeclaredMethod(str, clsArr);
+            }
+        }
+        if (method == null) {
+            throw new NoSuchMethodException("Method not found: " + str);
+        }
+        method.setAccessible(true);
+        return method.invoke(obj instanceof Class ? null : obj, objArr);
     }
 }
