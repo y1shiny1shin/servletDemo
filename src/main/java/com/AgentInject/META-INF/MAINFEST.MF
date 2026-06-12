@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Agent-Class: com.AgentInject.aaaaaaatransform
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
