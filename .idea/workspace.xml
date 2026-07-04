@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6aa8403-1946-40ea-9031-039d5a4dad12" name="更改" comment="将web2文件夹添加到资源目录中">
-      <change afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/WebFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web2/ell.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web2/flag.jsp" afterDir="false" />
+    <list default="true" id="f6aa8403-1946-40ea-9031-039d5a4dad12" name="更改" comment="添加SpringFlux代码">
+      <change afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/NettyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flux/src/main/java/com/flux/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flux/src/main/java/com/flux/WebFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/WebFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -136,7 +136,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat 服务器.Tomcat 8.5.84">
+  <component name="RunManager" selected="应用程序.FluxApplication">
     <configuration name="AgentSpringApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AgentInject.AgentSpringApplication" />
       <module name="servletDemo" />
@@ -392,7 +392,8 @@
       <workItem from="1779771607087" duration="1147000" />
       <workItem from="1779780601013" duration="37525000" />
       <workItem from="1781874342927" duration="9573000" />
-      <workItem from="1782741400637" duration="1238000" />
+      <workItem from="1782741400637" duration="1308000" />
+      <workItem from="1783143634132" duration="12648000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <option name="closed" value="true" />
@@ -458,7 +459,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781608832314</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="添加SpringFlux代码">
+      <option name="closed" value="true" />
+      <created>1782982652913</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1782982652914</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +481,8 @@
     <MESSAGE value="优化代码，添加SpringMVC-interceptor内存马支持" />
     <MESSAGE value="删除out文件夹，添加SpringFlux支持" />
     <MESSAGE value="将web2文件夹添加到资源目录中" />
-    <option name="LAST_COMMIT_MESSAGE" value="将web2文件夹添加到资源目录中" />
+    <MESSAGE value="添加SpringFlux代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加SpringFlux代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
