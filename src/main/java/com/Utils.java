@@ -1,4 +1,4 @@
-package com.flux;
+package com;
 
 import java.io.InputStream;
 import java.lang.reflect.Field;

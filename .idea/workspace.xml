@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6aa8403-1946-40ea-9031-039d5a4dad12" name="更改" comment="添加SpringFlux代码">
-      <change afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/NettyHandler.java" afterDir="false" />
+    <list default="true" id="f6aa8403-1946-40ea-9031-039d5a4dad12" name="更改" comment="完善SpringFlux代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flux/src/main/java/com/flux/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Flux/src/main/java/com/flux/WebFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/WebFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flux/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Flux/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Flux/src/main/java/com/flux/NettyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/NettyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Utils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,47 +71,49 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.servletDemo [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.servletDemo [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.servletDemo [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.servletDemo [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.servletDemo [validate].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AgentSpringApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Tomcat 服务器.Tomcat 8.5.31.executor&quot;: &quot;Run&quot;,
-    &quot;Tomcat 服务器.Tomcat 8.5.84.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/y1shin/Downloads/servletDemo/web2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facet&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.24482758&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
-    &quot;应用程序.AgentSpringApplication.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.FluxApplication.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.SpringApplication.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.SpringDemo.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.TomcatAgent.executor&quot;: &quot;Run&quot;,
-    &quot;应用程序.test.executor&quot;: &quot;Run&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.Flux [clean].executor": "Run",
+    "Maven.Flux [package].executor": "Run",
+    "Maven.servletDemo [clean].executor": "Run",
+    "Maven.servletDemo [compile].executor": "Run",
+    "Maven.servletDemo [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.servletDemo [package].executor": "Run",
+    "Maven.servletDemo [validate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AgentSpringApplication.executor": "Run",
+    "Tomcat 服务器.Tomcat 8.5.31.executor": "Run",
+    "Tomcat 服务器.Tomcat 8.5.84.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/y1shin/Downloads/servletDemo/web2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "问题",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.24482758",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.AgentSpringApplication.executor": "Run",
+    "应用程序.FluxApplication.executor": "Run",
+    "应用程序.SpringApplication.executor": "Run",
+    "应用程序.SpringDemo.executor": "Run",
+    "应用程序.TomcatAgent.executor": "Run",
+    "应用程序.test.executor": "Run"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web2" />
@@ -393,7 +394,8 @@
       <workItem from="1779780601013" duration="37525000" />
       <workItem from="1781874342927" duration="9573000" />
       <workItem from="1782741400637" duration="1308000" />
-      <workItem from="1783143634132" duration="12648000" />
+      <workItem from="1783143634132" duration="23551000" />
+      <workItem from="1784728351164" duration="8565000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <option name="closed" value="true" />
@@ -467,7 +469,15 @@
       <option name="project" value="LOCAL" />
       <updated>1782982652914</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="完善SpringFlux代码">
+      <option name="closed" value="true" />
+      <created>1783167022304</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1783167022304</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +492,8 @@
     <MESSAGE value="删除out文件夹，添加SpringFlux支持" />
     <MESSAGE value="将web2文件夹添加到资源目录中" />
     <MESSAGE value="添加SpringFlux代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加SpringFlux代码" />
+    <MESSAGE value="完善SpringFlux代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善SpringFlux代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
