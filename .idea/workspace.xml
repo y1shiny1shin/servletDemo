@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6aa8403-1946-40ea-9031-039d5a4dad12" name="更改" comment="添加SpringFluxHandlerMethod类内存马的支持">
-      <change afterPath="$PROJECT_DIR$/Flux/src/main/java/com/flux/evilHandlerFunction.java" afterDir="false" />
+    <list default="true" id="f6aa8403-1946-40ea-9031-039d5a4dad12" name="更改" comment="扩充HandlerFunction，方便调试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/AgentInject/InjectAgentServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/AgentInject/InjectAgentServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/InjectWebsocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/InjectWebsocket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,49 +71,49 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.Flux [clean].executor": "Run",
-    "Maven.Flux [package].executor": "Run",
-    "Maven.servletDemo [clean].executor": "Run",
-    "Maven.servletDemo [compile].executor": "Run",
-    "Maven.servletDemo [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.servletDemo [package].executor": "Run",
-    "Maven.servletDemo [validate].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AgentSpringApplication.executor": "Run",
-    "Tomcat 服务器.Tomcat 8.5.31.executor": "Run",
-    "Tomcat 服务器.Tomcat 8.5.84.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/y1shin/Downloads/servletDemo/web2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "问题",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.24482758",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true",
-    "应用程序.AgentSpringApplication.executor": "Run",
-    "应用程序.FluxApplication.executor": "Run",
-    "应用程序.SpringApplication.executor": "Run",
-    "应用程序.SpringDemo.executor": "Run",
-    "应用程序.TomcatAgent.executor": "Run",
-    "应用程序.test.executor": "Run"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Flux [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Flux [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.servletDemo [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.servletDemo [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.servletDemo [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.servletDemo [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.servletDemo [validate].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AgentSpringApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat 服务器.Tomcat 8.5.31.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat 服务器.Tomcat 8.5.84.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/y1shin/Downloads/servletDemo/web2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDK&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.24482758&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.AgentSpringApplication.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.FluxApplication.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.SpringApplication.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.SpringDemo.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.TomcatAgent.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.test.executor&quot;: &quot;Run&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web2" />
@@ -135,13 +137,39 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="应用程序.FluxApplication">
+  <component name="RunManager" selected="Tomcat 服务器.Tomcat 8.5.84">
     <configuration name="AgentSpringApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AgentInject.AgentSpringApplication" />
       <module name="servletDemo" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.AgentInject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AgentSpringApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AgentInject.AgentSpringApplication" />
+      <module name="servletDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AgentInject.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FluxApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.flux.FluxApplication" />
+      <module name="Flux" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.flux.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,12 +203,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SpringDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.DemoSpring.SpringDemo" />
+      <module name="servletDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.DemoSpring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TomcatAgent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.AgentInject2.TomcatAgent" />
       <module name="servletDemo" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.AgentInject2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TomcatAgent" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.AgentInject2.TomcatAgent" />
+      <module name="servletDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.AgentInject2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.test" />
+      <module name="servletDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -208,11 +275,113 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AgentSpringApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="servletDemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.AgentInject.AgentSpringApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringDemo" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="servletDemo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.DemoSpring.SpringDemo" />
       <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringDemo" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="servletDemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.DemoSpring.SpringDemo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.5.84" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.84" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="servletDemo:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/servletDemo_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="bbe314d6-224b-46cc-bcf6-d419ba7fa024" />
+        <option name="HTTP_PORT" value="8082" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="64111" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="servletDemo:war exploded" />
+        </option>
       </method>
     </configuration>
     <configuration name="Tomcat 8.5.84" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.84" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -315,8 +484,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.FluxApplication" />
         <item itemvalue="应用程序.SpringDemo" />
+        <item itemvalue="应用程序.FluxApplication" />
         <item itemvalue="应用程序.test" />
         <item itemvalue="应用程序.TomcatAgent" />
         <item itemvalue="应用程序.AgentSpringApplication" />
@@ -393,7 +562,10 @@
       <workItem from="1781874342927" duration="9573000" />
       <workItem from="1782741400637" duration="1308000" />
       <workItem from="1783143634132" duration="23551000" />
-      <workItem from="1784728351164" duration="35057000" />
+      <workItem from="1784728351164" duration="78073000" />
+      <workItem from="1787112550984" duration="20391000" />
+      <workItem from="1787997795936" duration="7533000" />
+      <workItem from="1788332159860" duration="3012000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <option name="closed" value="true" />
@@ -491,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784992946716</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="扩充HandlerFunction，方便调试">
+      <option name="closed" value="true" />
+      <created>1785060734859</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1785060734859</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +689,8 @@
     <MESSAGE value="完善SpringFlux代码" />
     <MESSAGE value="添加SpringFluxNettyHandler类内存马的支持" />
     <MESSAGE value="添加SpringFluxHandlerMethod类内存马的支持" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加SpringFluxHandlerMethod类内存马的支持" />
+    <MESSAGE value="扩充HandlerFunction，方便调试" />
+    <option name="LAST_COMMIT_MESSAGE" value="扩充HandlerFunction，方便调试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -27,7 +27,6 @@ public class InjectAgentServlet extends HttpServlet {
                     VirtualMachine virtualMachine = VirtualMachine.attach(vmd.id());
                     //加载Agent
                     virtualMachine.loadAgent("/Users/y1shin/Downloads/servletDemo/target/servletDemo-1.0-SNAPSHOT.jar");
-
                     virtualMachine.detach();
                 }catch (Exception e){
                     System.out.println(e);
